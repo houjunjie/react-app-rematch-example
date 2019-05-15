@@ -1,12 +1,22 @@
 import { init } from '@rematch/core';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger'
+import createLoadingPlugin from '@rematch/loading'
 import { login } from '../models/login';
 
-console.info(login);
+// see options API below
+const options = {}
+
+const loading = createLoadingPlugin(options)
 
 const store = init({
   models: {
-    login,
+    login
   },
+  redux: {
+    middlewares: [thunk, logger]
+  },
+  plugins: [loading]
 });
 
 export default store;

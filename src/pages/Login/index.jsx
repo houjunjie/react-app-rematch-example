@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import styled from 'styled-components'
 import { connect } from 'react-redux';
@@ -27,7 +27,10 @@ class NormalLoginForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.props.asyncLogin(values)
+        this.props.asyncLogin(values).then((res) => {
+          localStorage.setItem('Token', res.data.token)
+          window.location.href = '/'
+        })
       }
     });
   };
@@ -64,7 +67,7 @@ class NormalLoginForm extends React.Component {
               initialValue: true,
             })(<Checkbox>Remember me</Checkbox>)}
             <Link to="/">Forgot password</Link>
-            
+
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
@@ -79,16 +82,18 @@ class NormalLoginForm extends React.Component {
 const Login = Form.create({ name: 'normal_login' })(NormalLoginForm);
 
 const mapState = (state) => {
+  console.log(state, 'state')
   return {
-    userinfo: state.login.userInfo
+    userInfo: state.login.userInfo,
+    loading: {
+      global: state.loading.global
+    },
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
-    asyncLogin: (params) => {
-      return dispatch.login.asyncLogin(params);
-    },
+    asyncLogin: dispatch.login.asyncLogin,
   };
 };
 
