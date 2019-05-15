@@ -4,13 +4,16 @@ import Routers from './router';
 import { Provider } from 'react-redux';
 import store from './store/index.js';
 import * as serviceWorker from './serviceWorker';
-import Loading from './components/loading'
+import Loading from './components/Loading'
+import ErrorBoundary from './components/ErrorBoundary'
 import './index.css';
 
 ReactDOM.render((
   <Provider store={store}>
     <Suspense fallback={<Loading />}>
-      <Routers />
+      <ErrorBoundary>
+        <Routers />
+      </ErrorBoundary>
     </Suspense>
   </Provider>
 ), document.getElementById('root'));
