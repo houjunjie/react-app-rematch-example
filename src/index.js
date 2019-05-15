@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import Routers from './router';
 import { Provider } from 'react-redux';
 import store from './store/index.js';
 import * as serviceWorker from './serviceWorker';
+import Loading from './components/loading'
 import './index.css';
 
 ReactDOM.render((
   <Provider store={store}>
-    <Routers />
+    <Suspense fallback={<Loading />}>
+      <Routers />
+    </Suspense>
   </Provider>
 ), document.getElementById('root'));
 

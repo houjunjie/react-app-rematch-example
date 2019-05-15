@@ -2,23 +2,15 @@
  * @Author: fuyiwei 
  * @Date: 2019-05-14 16:43:36 
  * @Last Modified by: fuyiwei
- * @Last Modified time: 2019-05-14 17:36:27
+ * @Last Modified time: 2019-05-15 17:03:19
  */
 
-import * as React from 'react'
+import React, { lazy } from 'react'
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import Loadable from 'react-loadable'
-import Loading from '../components/loading'
 
-const LoginComponent = Loadable({
-  loader: () => import('../pages/Login'),
-  loading: Loading,
-});
+const LoginComponent = lazy(() => import('../pages/Login'))
 
-const HomeComponent = Loadable({
-  loader: () => import('../pages/Home'),
-  loading: Loading,
-});
+const HomeComponent = lazy(() => import('../pages/Home'))
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
