@@ -28,7 +28,7 @@ class NormalLoginForm extends React.Component {
       if (!err) {
         console.log('Received values of form: ', values);
         this.props.asyncLogin(values).then((res) => {
-          localStorage.setItem('Token', res.data.token)
+          localStorage.setItem('Token', res.token)
           window.location.href = '/'
         })
       }

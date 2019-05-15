@@ -1,5 +1,5 @@
-import axios from 'axios'
-const login = (params) => axios.post(`http://rap2api.taobao.org/app/mock/3317/api/v1/login`, params)
+import { Fetch } from '../utils'
+const login = (params) => Fetch(`/api/v1/login`, { method: 'POST', body: { ...params } });
 
 export default {
   login

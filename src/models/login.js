@@ -15,7 +15,8 @@ export const login = {
   effects: {
     async asyncLogin(params) {
       const { data } = await User.login(params);
-      this.login(data.data)
+      console.log(data, 'data')
+      this.login(data)
       return data
     },
   },
