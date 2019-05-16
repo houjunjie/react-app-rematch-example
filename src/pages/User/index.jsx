@@ -1,8 +1,7 @@
 import React from 'react'
 import{ HashRouter as Router, Link} from 'react-router-dom'
 
-
-export default class User extends React.Component{
+class User extends React.Component{
   render(){
     return (
       <Router>
@@ -12,3 +11,4 @@ export default class User extends React.Component{
     )
   }
 }
+export default User

@@ -89,7 +89,6 @@ NormalLoginForm.propTypes = {
 };
 
 const mapState = (state) => {
-  console.log(state, 'state')
   return {
     userInfo: state.login.userInfo,
     loading: {

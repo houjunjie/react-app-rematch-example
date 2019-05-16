@@ -1,6 +1,6 @@
-import User from '../service/user';
+import User from './service';
 
-export const login = {
+const login = {
   state: {
     userInfo: {},
   },
@@ -21,3 +21,5 @@ export const login = {
     },
   },
 };
+
+export default login
