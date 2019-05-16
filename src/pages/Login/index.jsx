@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import styled from 'styled-components'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const StyledForm = styled.div`
   width: 100%;
@@ -80,6 +81,12 @@ class NormalLoginForm extends React.Component {
 }
 
 const Login = Form.create({ name: 'normal_login' })(NormalLoginForm);
+
+NormalLoginForm.propTypes = {
+  userInfo: PropTypes.object,
+  loading: PropTypes.object,
+  asyncLogin: PropTypes.func,
+};
 
 const mapState = (state) => {
   console.log(state, 'state')
