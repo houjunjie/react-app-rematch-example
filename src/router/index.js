@@ -8,9 +8,9 @@
 import React, { lazy } from 'react'
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
-const LoginComponent = lazy(() => import('../pages/Login'))
+const LoginComponent = lazy(() => import('../pages/Login'));
 
-const LayoutComponent = lazy(() => import('../pages/Layout'))
+const LayoutComponent = lazy(() => import('../pages/Layout'));
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -28,7 +28,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         )
     }
   />
-)
+);
 
 export default class Routers extends React.Component {
   render() {
