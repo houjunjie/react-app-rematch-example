@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import styled from 'styled-components'
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 const StyledForm = styled.div`
   width: 100%;
