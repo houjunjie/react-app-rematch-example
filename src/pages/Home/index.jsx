@@ -1,7 +1,9 @@
 import React from 'react'
 import{ HashRouter as Router, Link} from 'react-router-dom'
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { TitleContext }  from './context'
+import Button from './button'
 
 class Home extends React.Component{
   componentDidMount(){
@@ -12,8 +14,12 @@ class Home extends React.Component{
     return (
       <Router>
         <div>home</div>
-        <div>{this.props.title}</div>
         <Link to="/about">about</Link>
+        <div>
+          <TitleContext.Provider value={this.props.title}>
+            <Button />
+          </TitleContext.Provider>
+        </div>
       </Router>
     )
   }
