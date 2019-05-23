@@ -1,2 +1,2 @@
 import React from 'react'
-export const TitleContext = React.createContext('test')
+export const TitleContext = React.createContext()

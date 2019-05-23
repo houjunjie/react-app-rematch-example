@@ -2,7 +2,7 @@ import Service from './service';
 
 const home = {
   state: {
-    title: '',
+    title: '加载中...',
   },
   reducers: {
     title(state, data) {

@@ -18,7 +18,7 @@ class Text extends React.Component {
   render() {
     return (
       <StyledText>
-        <Button type="primary">{this.context}</Button>
+        <Button type="primary" loading={this.context.loading}>{this.context.title}</Button>
       </StyledText>
     )
   }

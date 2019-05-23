@@ -16,7 +16,7 @@ class Home extends React.Component{
         <div>home</div>
         <Link to="/about">about</Link>
         <div>
-          <TitleContext.Provider value={this.props.title}>
+          <TitleContext.Provider value={this.props}>
             <Button />
           </TitleContext.Provider>
         </div>
@@ -27,16 +27,15 @@ class Home extends React.Component{
 
 Home.propTypes = {
   title: PropTypes.string,
-  loading: PropTypes.object,
+  loading: PropTypes.bool,
   getTitle: PropTypes.func,
 };
 
 const mapState = (state) => {
+  console.log(state,'state')
   return {
     title: state.home.title,
-    getTitle: {
-      global: state.loading.global
-    },
+    loading: state.loading.global
   };
 };
 
